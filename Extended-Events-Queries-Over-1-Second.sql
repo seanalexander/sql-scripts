@@ -13,7 +13,7 @@ EXEC  msdb.dbo.sp_add_job @job_name=N'Extended Events - Capture Queries over 1 S
 		@owner_login_name=N'sa', @job_id = @jobId OUTPUT
 select @jobId
 GO
-EXEC msdb.dbo.sp_add_jobserver @job_name=N'Extended Events - Capture Queries over 1 Second', @server_name = N'S-SQL1'
+EXEC msdb.dbo.sp_add_jobserver @job_name=N'Extended Events - Capture Queries over 1 Second', @server_name = N'SQLServerName'
 GO
 USE [msdb]
 GO
@@ -25,7 +25,7 @@ EXEC msdb.dbo.sp_add_jobstep @job_name=N'Extended Events - Capture Queries over 
 		@retry_attempts=0, 
 		@retry_interval=0, 
 		@os_run_priority=0, @subsystem=N'TSQL', 
-		@command=N'DECLARE @ExtendedEvents_FilePath VARCHAR(100) = ''E:\local\user\Traces''
+		@command=N'DECLARE @ExtendedEvents_FilePath VARCHAR(100) = ''C:\temp\Traces''
 
 DECLARE @Date_Today DATE = GETDATE()
 DECLARE @Date_Yesterday DATE = DATEADD(dd, -1, @Date_Today)

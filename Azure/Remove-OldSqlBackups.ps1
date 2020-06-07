@@ -23,7 +23,7 @@ Function Remove-SqlBlobBackups {
         [string]$AccountKey,
         [string]$Container,
         [DateTime]$StartDate = (Get-Date).AddYears(-1), #The farthest you want to go back in time.
-        [DateTime]$EndDate = (Get-Date).AddDays(-30), #The date you want to stop at.
+        [DateTime]$EndDate = (Get-Date).AddDays(-31), #The date you want to stop at.
         [ValidateSet('*.trn', '*.bak', '*.dif')]
         [string[]]$BlobPatterns = @("*.trn", "*.bak", "*.dif"),
         [ValidateRange(1, 100000)]
